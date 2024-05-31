@@ -54,9 +54,9 @@ int main(int argc, char ** argv)
 
     VisibleWall visibleWall({(float) WINDOW_WIDTH / 2, 0, 5, WINDOW_HEIGTH});
 
-    vector<Inputable*> inputables;
-    vector<Updatable*> updatables;
-    vector<Drawnable*> drawnables;
+    vector<InputableComponent*> inputables;
+    vector<UpdatableComponenet*> updatables;
+    vector<DrawnableComponent*> drawnables;
 
     Ball ball(20.0);
 

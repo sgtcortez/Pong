@@ -6,14 +6,14 @@
 namespace ramboindustries 
 {
 
-    class Wall :  public RectangleShape
+    class Wall :  public RectangleShapeComponent
     {
         public:
             Wall(Rectangle rectangle);
             ObjectType get_object_type() const override;
     };
 
-    class VisibleWall : public Wall, public Drawnable
+    class VisibleWall : public Wall, public DrawnableComponent
     {
         public:    
             VisibleWall(Rectangle rectangle);

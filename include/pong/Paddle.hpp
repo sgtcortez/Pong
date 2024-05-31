@@ -7,17 +7,23 @@
 namespace ramboindustries
 {
 
-    struct BasePaddle : public RectangleShape, public Drawnable, public Collider, public Updatable
+    struct BasePaddle : 
+        public RectangleShapeComponent, 
+        public DrawnableComponent, 
+        public ColliderComponent, 
+        public UpdatableComponenet
     {
         virtual ~BasePaddle() = default;
         void limit();
         void draw() override;
-        bool intersect(Shape* collider) override;
+        bool intersect(ShapeComponent* collider) override;
         ObjectType get_object_type() const override;
     };
 
 
-    class Paddle : public BasePaddle, public Inputable
+    class Paddle : 
+        public BasePaddle, 
+        public InputableComponent
     {
 
         private:

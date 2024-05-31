@@ -5,12 +5,12 @@
 namespace ramboindustries 
 {
 
-    struct Inputable 
+    struct InputableComponent
     {
         virtual void input() = 0;
     };
 
-    struct  Updatable
+    struct  UpdatableComponenet
     {
         /**
          * We can not get the value directly from Raylib because we might have different delta
@@ -19,7 +19,7 @@ namespace ramboindustries
         virtual void update(const float delta_time) = 0;
     };
 
-    struct Drawnable 
+    struct DrawnableComponent
     {
         virtual void draw() = 0;                  
     };
@@ -30,27 +30,27 @@ namespace ramboindustries
         RECTANGLE
     };
 
-    struct Shape 
+    struct ShapeComponent 
     {
         virtual ObjectType get_object_type() const = 0;
     };
 
-    struct RectangleShape : public Shape
+    struct RectangleShapeComponent : public ShapeComponent
     {
         public:
             Rectangle rectangle;        
     };
 
-    struct CircleShape : public Shape 
+    struct CircleShapeComponent : public ShapeComponent 
     {
         public:
             Vector2 center;
             float radius;
     };
 
-    struct Collider
+    struct ColliderComponent
     {   
-        virtual bool intersect(Shape* collider) = 0;  
+        virtual bool intersect(ShapeComponent* collider) = 0;  
     };
 
 };

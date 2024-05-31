@@ -1,5 +1,6 @@
 #include "pong/Paddle.hpp"
 #include "pong/Ball.hpp"
+#include "pong/Interface.hpp"
 
 #include <cstdlib>
 #include <raylib.h>
@@ -38,12 +39,12 @@ ObjectType BasePaddle::get_object_type() const
 }
 
 
-bool BasePaddle::intersect(Shape* collider) 
+bool BasePaddle::intersect(ShapeComponent* collider) 
 {
     const auto type = collider->get_object_type();   
     if (type == ObjectType::RECTANGLE)
     {
-        RectangleShape* c = static_cast<RectangleShape*>(collider);
+        RectangleShapeComponent* c = static_cast<RectangleShapeComponent*>(collider);
         return CheckCollisionRecs(this->rectangle, c->rectangle);
     } 
     return false;
