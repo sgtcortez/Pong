@@ -7,6 +7,12 @@
 namespace ramboindustries
 {
 
+    enum class PaddleSide
+    {
+        LEFT,
+        RIGTH
+    };
+
     struct BasePaddle : 
         public RectangleShapeComponent, 
         public DrawnableComponent, 
@@ -39,7 +45,7 @@ namespace ramboindustries
             /**
              * Is the user controlling the left or the right paddle?
             */
-            Paddle(const bool left, const int width, const int height);
+            Paddle(const PaddleSide side, const int width, const int height);
 
             void input() override;
             void update(const float delta_time) override;
@@ -51,13 +57,13 @@ namespace ramboindustries
 
         private:
             const Ball& ball;
-            const bool left;
+            const PaddleSide side;
             Vector2 last_ball_position;
         public:
             AIPaddle(
                 // For this AI, we need to know where the ball is
                 const Ball& ball,
-                const bool left, 
+                const PaddleSide side, 
                 const int width, 
                 const int height
             );

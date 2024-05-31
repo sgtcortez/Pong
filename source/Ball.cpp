@@ -15,10 +15,6 @@ Ball::Ball(const float radius)
     // the ball speed can be increased as soon as the game runs
     this->speed.x = 250;
     this->speed.y = 150;
-
-    this->center.x = (float) GetScreenWidth() / 2;
-    this->center.y = (float) GetScreenHeight() / 2;
-    
     this->radius = radius;
 }
 

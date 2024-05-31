@@ -55,10 +55,10 @@ bool BasePaddle::intersect(ShapeComponent* collider)
     * Since we let the user choose the left paddle and the right paddle.
     * we need to be able to choose the correct keycode
 */
-Paddle::Paddle(const bool left, const int width, const int height)
+Paddle::Paddle(const PaddleSide side, const int width, const int height)
 :
-    keycode_up(left ? KEY_W : KEY_UP),
-    keycode_down(left ? KEY_S : KEY_DOWN)
+    keycode_up(side == PaddleSide::LEFT ? KEY_W : KEY_UP),
+    keycode_down(side == PaddleSide::LEFT ? KEY_S : KEY_DOWN)
 {
 
     this->rectangle.height = height;
@@ -69,7 +69,7 @@ Paddle::Paddle(const bool left, const int width, const int height)
      * since user can not plot it anywhere, its only updatable by keyboard events
     */
 
-    if (left) 
+    if (side == PaddleSide::LEFT) 
     {
         /**
          * If its left, we start 0 + 10 for X and in the middle for Y
@@ -127,13 +127,13 @@ void Paddle::update(const float delta_time)
 
 AIPaddle::AIPaddle(
     const Ball& ball,
-    const bool left,
+    const PaddleSide side,
     const int width,
     const int height
 )
 :
     ball(ball),
-    left(left)
+    side(side)
 {
     this->rectangle.height = height;
     this->rectangle.width = width;
@@ -145,7 +145,7 @@ AIPaddle::AIPaddle(
      * since user can not plot it anywhere, its only updatable by keyboard events
     */
 
-    if (left) 
+    if (side == PaddleSide::LEFT) 
     {
         /**
          * If its left, we start 0 + 10 for X and in the middle for Y
@@ -170,7 +170,7 @@ void AIPaddle::update(const float delta_time)
      * Improve this with math
      * Would be nice to discover the direction and where the ball is going
     */
-    if (left)
+    if (side == PaddleSide::LEFT)
     {
         if (ball.center.x > screen_middle_x) 
         {
@@ -194,7 +194,7 @@ void AIPaddle::update(const float delta_time)
 
     bool center_paddle = false;
 
-    if (left)
+    if (side == PaddleSide::LEFT)
     {
         if (last_ball_position.x < ball.center.x)
         {
