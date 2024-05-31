@@ -10,12 +10,13 @@ DEPS=\
 	source/Paddle.o \
 	source/Ball.o   \
 	source/Wall.o   \
+	source/Game.o   \
 
 LINKS=-lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 all: game
 
-game: Game.cpp $(DEPS) 
+game: main.cpp $(DEPS) 
 	$(CXX) -o $@ $< $(LINKS) $(CXXFLAGS) $(DEPS)
 
 .PHONY: clean
