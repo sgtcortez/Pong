@@ -42,14 +42,14 @@ ObjectType Ball::get_object_type() const
     return ObjectType::CIRCLE;
 }
 
-bool Ball::intersect(Shape* collider) 
+bool Ball::intersect(ShapeComponent* collider) 
 {
 
     const auto type = collider->get_object_type();
     
     if (type == ObjectType::RECTANGLE)
     {
-        RectangleShape* c = static_cast<RectangleShape*>(collider);
+        RectangleShapeComponent* c = static_cast<RectangleShapeComponent*>(collider);
         return CheckCollisionCircleRec(
             this->center, 
             this->radius, 

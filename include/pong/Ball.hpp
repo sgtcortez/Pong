@@ -6,7 +6,11 @@
 namespace ramboindustries
 {
 
-    class Ball : public Updatable, public Drawnable, public CircleShape, Collider
+    class Ball : 
+        public UpdatableComponenet, 
+        public DrawnableComponent, 
+        public CircleShapeComponent, 
+        public ColliderComponent
     {
         private:
             Vector2 speed;
@@ -16,7 +20,7 @@ namespace ramboindustries
             ~Ball();
             void update(const float delta_time) override;
             void draw() override;
-            bool intersect(Shape* collider) override;
+            bool intersect(ShapeComponent* collider) override;
             ObjectType get_object_type() const override;
 
             void reverse_x();
