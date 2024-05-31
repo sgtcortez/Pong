@@ -35,6 +35,7 @@ namespace ramboindustries
             /*const*/ Wall bottom_wall;
             VisibleWall middle_wall;
             Sound goal_sound;
+            Sound bounce_sound;
             unsigned int left_score;
             unsigned int rigth_score;
 

@@ -34,6 +34,7 @@ Game::Game(
 
     InitAudioDevice();
     goal_sound = LoadSound("./assets/powerUp.wav");
+    bounce_sound = LoadSound("./assets/bounce.mp3");
 
     // 3% of total width
     const int paddle_width = width * 0.03;
@@ -189,11 +190,13 @@ void Game::handle_ball_collissions()
     if (ball.intersect(left_paddle.get()) || ball.intersect(right_paddle.get()))
     {
         ball.reverse_x();
+        PlaySound(bounce_sound);
     }
 
     if (ball.intersect(&top_wall) || ball.intersect(&bottom_wall)) 
     {
         ball.reverse_y();
+        PlaySound(bounce_sound);
     }
 
     if (ball.intersect(&left_wall))
