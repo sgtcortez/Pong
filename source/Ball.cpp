@@ -14,7 +14,7 @@ Ball::Ball(const float radius)
 {
     // the ball speed can be increased as soon as the game runs
     this->speed.x = 250;
-    this->speed.y = 150;
+    this->speed.y = 250;
     this->radius = radius;
 }
 

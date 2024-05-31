@@ -34,7 +34,7 @@ namespace ramboindustries
             /*const*/ Wall top_wall;
             /*const*/ Wall bottom_wall;
             VisibleWall middle_wall;
-            const Sound goal_sound;
+            Sound goal_sound;
             unsigned int left_score;
             unsigned int rigth_score;
 

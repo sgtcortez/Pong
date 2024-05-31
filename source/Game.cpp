@@ -22,7 +22,6 @@ Game::Game(
     top_wall({0, 0, (float) width, 0}),
     bottom_wall({0, (float) height, (float) width, 0}),
     middle_wall({(float) width / 2, 0, 5, (float) height}),
-    goal_sound(LoadSound("./assets/powerUp.wav")),
     left_score(0),
     rigth_score(0),
     ball(20.0)
@@ -32,6 +31,9 @@ Game::Game(
 
     InitWindow(width, height, "Pong Game");
     SetTargetFPS(target_fps);
+
+    InitAudioDevice();
+    goal_sound = LoadSound("./assets/powerUp.wav");
 
     // 3% of total width
     const int paddle_width = width * 0.03;
