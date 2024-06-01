@@ -115,6 +115,7 @@ Game::Game(
 Game::~Game()
 {
     UnloadSound(goal_sound);
+    UnloadSound(bounce_sound);
     CloseAudioDevice();
     CloseWindow();    
 }
