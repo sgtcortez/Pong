@@ -10,6 +10,7 @@
 
 #include "object/Ball.hpp"
 #include "object/Paddle.hpp"
+#include "object/Pause.hpp"
 #include "object/Score.hpp"
 #include "object/Wall.hpp"
 #include "object/VisibleWall.hpp"
@@ -46,6 +47,7 @@ namespace ramboindustries
                 object::Wall top_wall;
                 object::Wall bottom_wall;
                 object::VisibleWall middle_wall;
+                object::Pause pause;
                 Sound goal_sound;
                 Sound bounce_sound;
 

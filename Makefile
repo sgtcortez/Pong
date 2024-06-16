@@ -12,6 +12,7 @@ DEPS=\
 	source/object/AIPaddle.o 			 \
 	source/object/Ball.o 				 \
 	source/object/Paddle.o  		     \
+	source/object/Pause.o 			     \
 	source/object/Score.o				 \
 	source/object/UserPaddle.o 			 \
 	source/object/VisibleWall.o          \
