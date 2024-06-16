@@ -105,6 +105,8 @@ Game::Game(
         }
     }
 
+    input_components.push_back(&pause);
+
     update_componenets.push_back(&ball);
 
     render_componenets.push_back(&ball);
@@ -150,6 +152,13 @@ void Game::input_phase()
 
 void Game::update_phase() 
 {
+
+    if (pause.is_paused())
+    {
+        // Game is in paused state
+        return;
+    }
+
     const float delta_time = GetFrameTime();
     for (auto& updatable : update_componenets)
     {
